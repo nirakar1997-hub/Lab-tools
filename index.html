@@ -100,7 +100,7 @@
     <ol>
       <li>Send the link to Nick, with the section it belongs to (DNA, RNA, Protein, Genomes, Tool collections, Learn, Figures).</li>
       <li>Add one sentence on what it does, and why you found it useful.</li>
-      <li>It will appear here, with your name in the lab's resource list.</li>
+      <li>It will then appear on this page.</li>
     </ol>
   </section>
 </main>
@@ -110,12 +110,11 @@
 <script>
 /* =====================================================================
    ALL CONTENT LIVES HERE.
-   One tool = {name, url, desc, more, tag, inside, by}
+   One tool = {name, url, desc, more, tag, inside}
      desc   = one short line shown on the card
      more   = longer explanation shown on hover / tap
      tag    = optional label (default "Free"); paid:true makes it orange
      inside = optional list of what you can do inside (for big portals)
-     by     = who added it
    ===================================================================== */
 const SECTIONS = [
   { id:"dna", name:"DNA", color:"var(--dna)",
@@ -124,34 +123,34 @@ const SECTIONS = [
       { title:"PCR & primer design", what:"Copy a piece of DNA many times. Good primers decide if your PCR works.",
         tools:[
           {name:"NCBI Primer-BLAST", url:"https://www.ncbi.nlm.nih.gov/tools/primer-blast/", desc:"Design primers and check they only bind your target.",
-           more:"Designs primers for your sequence and then checks them against a whole genome, so you know they will not bind somewhere else. Good first choice for PCR and qPCR.", by:"Nick"},
+           more:"Designs primers for your sequence and then checks them against a whole genome, so you know they will not bind somewhere else. Good first choice for PCR and qPCR."},
           {name:"Primer3Plus", url:"https://www.primer3plus.com/", desc:"Simple primer design from a sequence.",
-           more:"Paste a sequence, mark the region you want, and get a list of primer pairs. Fast and simple, but it does not check for off-target binding.", by:"Nick"},
+           more:"Paste a sequence, mark the region you want, and get a list of primer pairs. Fast and simple, but it does not check for off-target binding."},
           {name:"NEB Tm Calculator", url:"https://tmcalculator.neb.com/", desc:"Find the right annealing temperature for your polymerase.",
-           more:"Enter your two primers and choose your NEB polymerase. It tells you the annealing temperature to use for that enzyme.", by:"Nick"}
+           more:"Enter your two primers and choose your NEB polymerase. It tells you the annealing temperature to use for that enzyme."}
         ]},
       { title:"Cloning & plasmids", what:"Put a gene into a plasmid so you can grow, express or study it.",
         tools:[
           {name:"Addgene", url:"https://www.addgene.org/", desc:"Non-profit library of plasmids shared by other labs.",
-           more:"Find and order plasmids that other labs have published. Each plasmid has a map, sequence and the paper it comes from.", by:"Nick"},
+           more:"Find and order plasmids that other labs have published. Each plasmid has a map, sequence and the paper it comes from."},
           {name:"SnapGene Viewer", url:"https://www.snapgene.com/snapgene-viewer", desc:"Open and view plasmid maps.", tag:"Free viewer",
-           more:"Desktop program to open plasmid and sequence files and see features, restriction sites and primers. The viewer is free; full SnapGene is paid.", by:"Nick"},
+           more:"Desktop program to open plasmid and sequence files and see features, restriction sites and primers. The viewer is free; full SnapGene is paid."},
           {name:"Benchling", url:"https://www.benchling.com/", desc:"Plan cloning and keep sequences online.", tag:"Free for academics",
-           more:"Online notebook for sequences. Plan cloning, design primers and guide RNAs, and share sequences with the lab.", by:"Nick"}
+           more:"Online notebook for sequences. Plan cloning, design primers and guide RNAs, and share sequences with the lab."}
         ]},
       { title:"Sequence search & alignment", what:"Find similar sequences and line them up to see what is shared or different.",
         tools:[
           {name:"NCBI BLAST", url:"https://blast.ncbi.nlm.nih.gov/Blast.cgi", desc:"Search your sequence against public databases.",
-           more:"Paste a DNA or protein sequence and find similar sequences in other species. The standard way to ask 'what is this gene?'.", by:"Nick"},
+           more:"Paste a DNA or protein sequence and find similar sequences in other species. The standard way to ask 'what is this gene?'."},
           {name:"Clustal Omega (EMBL-EBI)", url:"https://www.ebi.ac.uk/jdispatcher/msa/clustalo", desc:"Align many sequences at once.",
-           more:"Lines up several sequences so you can see conserved and changed positions. Useful before building a tree or comparing orthologs.", by:"Nick"}
+           more:"Lines up several sequences so you can see conserved and changed positions. Useful before building a tree or comparing orthologs."}
         ]},
       { title:"CRISPR & gene editing", what:"Cut or change DNA at a chosen spot using a guide RNA.",
         tools:[
           {name:"CHOPCHOP", url:"https://chopchop.cbu.uib.no/", desc:"Find good guide RNA sites in your gene.",
-           more:"Choose your species and gene, and it ranks guide RNA sites by how well they should cut and how few off-targets they have.", by:"Nick"},
+           more:"Choose your species and gene, and it ranks guide RNA sites by how well they should cut and how few off-targets they have."},
           {name:"Addgene Blog: CRISPR", url:"https://blog.addgene.org/", desc:"Plain guides: CRISPR 101, Cas proteins, protocols and tips.",
-           more:"Easy-to-read articles explaining how CRISPR works, which Cas protein to choose, and practical tips.", by:"Nick"}
+           more:"Easy-to-read articles explaining how CRISPR works, which Cas protein to choose, and practical tips."}
         ]}
     ]},
 
@@ -161,22 +160,22 @@ const SECTIONS = [
       { title:"qPCR", what:"Measure how much of a transcript is in your sample.",
         tools:[
           {name:"NCBI Primer-BLAST", url:"https://www.ncbi.nlm.nih.gov/tools/primer-blast/", desc:"Design primers that span exon junctions.",
-           more:"Tick the option for primers that span an exon–exon junction. Then they only amplify cDNA, not leftover genomic DNA.", by:"Nick"}
+           more:"Tick the option for primers that span an exon–exon junction. Then they only amplify cDNA, not leftover genomic DNA."}
         ]},
       { title:"RNA-seq analysis", what:"Read all transcripts in a sample and compare expression between conditions.",
         tools:[
           {name:"Galaxy Europe", url:"https://usegalaxy.eu/", desc:"Run RNA-seq analysis in the browser, no coding needed.",
-           more:"Free web platform with ready-made tools for mapping reads, counting and differential expression. Comes with step-by-step training lessons.", by:"Nick"}
+           more:"Free web platform with ready-made tools for mapping reads, counting and differential expression. Comes with step-by-step training lessons."}
         ]},
       { title:"RNA structure", what:"Predict how an RNA molecule folds.",
         tools:[
           {name:"RNAfold web server", url:"http://rna.tbi.univie.ac.at/cgi-bin/RNAWebSuite/RNAfold.cgi", desc:"Predict secondary structure from a sequence.",
-           more:"Paste an RNA sequence and see the most likely fold (stems and loops) as a drawing.", by:"Nick"}
+           more:"Paste an RNA sequence and see the most likely fold (stems and loops) as a drawing."}
         ]},
       { title:"RNA tools & knock-down", what:"Background on RNAi, RNA tools and related plasmids.",
         tools:[
           {name:"Addgene Blog: RNA Tools", url:"https://blog.addgene.org/", desc:"Explainers and tips under Plasmids → RNA Tools.",
-           more:"Articles about RNAi, RNA-targeting tools and the plasmids used for them.", by:"Nick"}
+           more:"Articles about RNAi, RNA-targeting tools and the plasmids used for them."}
         ]}
     ]},
 
@@ -186,69 +185,69 @@ const SECTIONS = [
       { title:"From DNA to protein", what:"Translate a DNA sequence to see the protein it codes for.",
         tools:[
           {name:"Expasy Translate", url:"https://web.expasy.org/translate/", desc:"Translate DNA in all six reading frames.",
-           more:"Paste DNA and see the protein in all six frames, with start and stop codons marked. Quick way to find the open reading frame.", by:"Nick"}
+           more:"Paste DNA and see the protein in all six frames, with start and stop codons marked. Quick way to find the open reading frame."}
         ]},
       { title:"Sequence & domains", what:"Look up a protein, find similar ones, and see which parts (domains) it has.",
         tools:[
           {name:"UniProt", url:"https://www.uniprot.org/", desc:"Main database of protein sequences and functions.",
-           more:"One page per protein: sequence, function, domains, location in the cell, and links to structures and papers.", by:"Nick"},
+           more:"One page per protein: sequence, function, domains, location in the cell, and links to structures and papers."},
           {name:"UniProt BLAST", url:"https://www.uniprot.org/blast/", desc:"Find similar proteins in UniProt.",
-           more:"BLAST your protein against UniProt. Results link straight to well-annotated protein pages, which makes them easier to read than NCBI results.", by:"Colleague"},
+           more:"BLAST your protein against UniProt. Results link straight to well-annotated protein pages, which makes them easier to read than NCBI results."},
           {name:"InterPro", url:"https://www.ebi.ac.uk/interpro/", desc:"Find protein families and domains.",
-           more:"Combines many domain databases (Pfam and others) in one place. Shows which family your protein belongs to and where its domains are.", by:"Nick"},
+           more:"Combines many domain databases (Pfam and others) in one place. Shows which family your protein belongs to and where its domains are."},
           {name:"NCBI CD-Search", url:"https://www.ncbi.nlm.nih.gov/Structure/cdd/wrpsb.cgi", desc:"Paste a protein sequence to find its conserved domains.",
-           more:"Fast domain search from NCBI. Shows conserved domains as a picture along your protein, plus key sites like binding sites.", by:"Nick"},
+           more:"Fast domain search from NCBI. Shows conserved domains as a picture along your protein, plus key sites like binding sites."},
           {name:"SMART", url:"https://smart.embl.de/", desc:"See the domain layout of a protein.",
-           more:"Draws the order of domains along a protein (domain architecture). Good for comparing how proteins in a family are built.", by:"Colleague"},
+           more:"Draws the order of domains along a protein (domain architecture). Good for comparing how proteins in a family are built."},
           {name:"EMBL-EBI Protein Functional Analysis", url:"https://www.ebi.ac.uk/jdispatcher/pfa", desc:"Run InterProScan and related function tools.",
-           more:"EMBL-EBI's set of tools for predicting protein function from sequence, such as InterProScan. Useful for many sequences at once.", by:"Colleague"}
+           more:"EMBL-EBI's set of tools for predicting protein function from sequence, such as InterProScan. Useful for many sequences at once."}
         ]},
       { title:"3D structure", what:"See or predict the 3D shape of a protein, and find proteins with a similar shape.",
         tools:[
           {name:"AlphaFold Protein Structure Database", url:"https://alphafold.ebi.ac.uk/", desc:"Ready-made predicted structures for most known proteins.",
-           more:"Search by protein name or UniProt ID and view the predicted 3D shape. Colours show how confident the prediction is.", by:"Nick"},
+           more:"Search by protein name or UniProt ID and view the predicted 3D shape. Colours show how confident the prediction is."},
           {name:"AlphaFold Server", url:"https://alphafoldserver.com/welcome", desc:"Predict a new structure, also with DNA, RNA or other proteins.", tag:"Free, non-commercial",
-           more:"Paste your own sequence to predict its 3D shape. Can also model complexes, e.g. a protein bound to DNA or to a partner protein. Needs a Google account.", by:"Colleague"},
+           more:"Paste your own sequence to predict its 3D shape. Can also model complexes, e.g. a protein bound to DNA or to a partner protein. Needs a Google account."},
           {name:"Foldseek", url:"https://search.foldseek.com/search", desc:"Find proteins with a similar 3D shape.",
-           more:"Upload a structure (e.g. from AlphaFold) and find proteins that are folded the same way, even if their sequences look very different.", by:"Colleague"},
+           more:"Upload a structure (e.g. from AlphaFold) and find proteins that are folded the same way, even if their sequences look very different."},
           {name:"RCSB PDB", url:"https://www.rcsb.org/", desc:"Database of structures solved by experiments.",
-           more:"Structures measured in the lab (X-ray, cryo-EM, NMR). Use it to check if your protein, or a close relative, has a real solved structure.", by:"Colleague"},
+           more:"Structures measured in the lab (X-ray, cryo-EM, NMR). Use it to check if your protein, or a close relative, has a real solved structure."},
           {name:"CATH", url:"https://www.cathdb.info/", desc:"Sorts protein domains by their shape.",
-           more:"Groups domains into families by their 3D fold. Helps you see which known structural family your domain belongs to.", by:"Colleague"},
+           more:"Groups domains into families by their 3D fold. Helps you see which known structural family your domain belongs to."},
           {name:"Zhang Lab tools (I-TASSER, D-I-TASSER)", url:"https://zhanggroup.org/", desc:"Structure and function prediction servers.",
-           more:"Classic structure prediction tools. See 'Tool collections' for the full list of what this site offers.", by:"Colleague"}
+           more:"Classic structure prediction tools. See 'Tool collections' for the full list of what this site offers."}
         ]},
       { title:"Function & location in the cell", what:"Predict what a protein does, and where in the cell it goes.",
         tools:[
           {name:"SignalP 6.0", url:"https://services.healthtech.dtu.dk/services/SignalP-6.0/", desc:"Does my protein have a signal peptide?",
-           more:"Predicts a signal peptide at the start of the protein. A signal peptide usually means the protein is secreted or goes into membranes.", by:"Colleague"},
+           more:"Predicts a signal peptide at the start of the protein. A signal peptide usually means the protein is secreted or goes into membranes."},
           {name:"DeepTMHMM", url:"https://services.healthtech.dtu.dk/services/DeepTMHMM-1.0/", desc:"Is my protein in a membrane?",
-           more:"Predicts parts of the protein that cross the membrane, and which parts face inside or outside the cell.", by:"Colleague"},
+           more:"Predicts parts of the protein that cross the membrane, and which parts face inside or outside the cell."},
           {name:"Protter", url:"https://protter.ethz.ch/", desc:"Draw a membrane protein with its features.",
-           more:"Makes a clear picture of a protein sitting in the membrane, with domains, sites and modifications marked. Nice for figures.", by:"Colleague"},
+           more:"Makes a clear picture of a protein sitting in the membrane, with domains, sites and modifications marked. Nice for figures."},
           {name:"PSORT", url:"https://psort.org/", desc:"Predict where a protein goes in the cell.",
-           more:"Family of localisation predictors (e.g. PSORTb for bacteria), with links to versions for other organisms.", by:"Colleague"},
+           more:"Family of localisation predictors (e.g. PSORTb for bacteria), with links to versions for other organisms."},
           {name:"SIFTER", url:"https://sifter.berkeley.edu/", desc:"Predict protein function from evolution.",
-           more:"Predicts function by looking at the family tree of related proteins whose function is known.", by:"Colleague"}
+           more:"Predicts function by looking at the family tree of related proteins whose function is known."}
         ]},
       { title:"Disordered proteins", what:"Find parts of a protein that have no fixed 3D shape.",
         tools:[
           {name:"DisProt", url:"https://disprot.org/", desc:"Disordered regions proven by experiments.",
-           more:"Hand-checked database of disordered regions that were shown in experiments. The most trusted source.", by:"Colleague"},
+           more:"Hand-checked database of disordered regions that were shown in experiments. The most trusted source."},
           {name:"MobiDB", url:"https://mobidb.org/", desc:"Disorder for almost every known protein.",
-           more:"Combines experiments and predictions to show disordered regions for proteins in UniProt. Covers far more proteins than DisProt.", by:"Colleague"}
+           more:"Combines experiments and predictions to show disordered regions for proteins in UniProt. Covers far more proteins than DisProt."}
         ]},
       { title:"Interaction partners", what:"Find which proteins work together.",
         tools:[
           {name:"STRING", url:"https://string-db.org/", desc:"Network of known and predicted protein partners.",
-           more:"Type a protein and species to see a network of partners, from experiments, shared expression and text mining. Each link shows how strong the evidence is.", by:"Colleague"}
+           more:"Type a protein and species to see a network of partners, from experiments, shared expression and text mining. Each link shows how strong the evidence is."}
         ]},
       { title:"Western blot & gel images", what:"Detect a protein with antibodies and measure band strength.",
         tools:[
           {name:"Fiji (ImageJ)", url:"https://imagej.net/software/fiji/", desc:"Measure band strength on blots and gels.", tag:"Free download",
-           more:"Open your blot image, draw a box around each band and measure its intensity. Fiji can do much more; see 'Tool collections'.", by:"Nick"},
+           more:"Open your blot image, draw a box around each band and measure its intensity. Fiji can do much more; see 'Tool collections'."},
           {name:"Addgene Blog: Antibodies", url:"https://blog.addgene.org/", desc:"Western blotting, antibody and flow cytometry guides.",
-           more:"Practical articles on choosing antibodies, troubleshooting Westerns, and related methods.", by:"Nick"}
+           more:"Practical articles on choosing antibodies, troubleshooting Westerns, and related methods."}
         ]}
     ]},
 
@@ -258,18 +257,18 @@ const SECTIONS = [
       { title:"Genome browsers & downloads", what:"Browse genome assemblies and gene models, or download them.",
         tools:[
           {name:"Ensembl", url:"https://www.ensembl.org/", desc:"Main genome browser, mostly vertebrates.",
-           more:"Look at genes, transcripts and orthologs on the genome. For insects and other invertebrates, use Ensembl Metazoa.", by:"Colleague"},
+           more:"Look at genes, transcripts and orthologs on the genome. For insects and other invertebrates, use Ensembl Metazoa."},
           {name:"Ensembl Metazoa", url:"https://metazoa.ensembl.org/", desc:"Genome browser for invertebrates.",
-           more:"Same as Ensembl, but for insects and other invertebrates.", by:"Nick"},
+           more:"Same as Ensembl, but for insects and other invertebrates."},
           {name:"NCBI Datasets", url:"https://www.ncbi.nlm.nih.gov/datasets/", desc:"Download genomes, genes and annotations.",
-           more:"Find a species and download its genome, proteins and annotation files in one go.", by:"Nick"}
+           more:"Find a species and download its genome, proteins and annotation files in one go."}
         ]},
       { title:"Insect resources", what:"Databases made for insect genes and genomes.",
         tools:[
           {name:"i5k Workspace", url:"https://i5k.nal.usda.gov/", desc:"Genomes and annotation tools for insects and other arthropods.",
-           more:"Hosts many insect genomes, with BLAST and tools to view and improve gene models.", by:"Nick"},
+           more:"Hosts many insect genomes, with BLAST and tools to view and improve gene models."},
           {name:"iBeetle-Base", url:"https://ibeetle-base.uni-goettingen.de/", desc:"Tribolium genes and RNAi phenotypes.",
-           more:"Database for the red flour beetle Tribolium castaneum. Look up a gene and see what happened when it was knocked down by RNAi in a large screen.", by:"Colleague"}
+           more:"Database for the red flour beetle Tribolium castaneum. Look up a gene and see what happened when it was knocked down by RNAi in a large screen."}
         ]}
     ]},
 
@@ -280,31 +279,31 @@ const SECTIONS = [
         tools:[
           {name:"Expasy (SIB)", url:"https://www.expasy.org/", desc:"Swiss portal with tools for proteins, DNA and more.",
            more:"Run by the Swiss Institute of Bioinformatics. Good starting point for almost any protein question.",
-           inside:["Translate DNA to protein","Protein size, charge and stability (ProtParam)","Protein motifs and patterns (PROSITE)","Model 3D structure from a template (SWISS-MODEL)","Links to UniProt and many more tools"], by:"Colleague"}
+           inside:["Translate DNA to protein","Protein size, charge and stability (ProtParam)","Protein motifs and patterns (PROSITE)","Model 3D structure from a template (SWISS-MODEL)","Links to UniProt and many more tools"]}
         ]},
       { title:"Europe's big toolbox", what:"All EMBL-EBI databases and analysis tools in one place.",
         tools:[
           {name:"EMBL-EBI Services", url:"https://www.ebi.ac.uk/services/", desc:"All tools and databases from EMBL-EBI.",
            more:"Europe's main bioinformatics institute. One page that lists all its databases and analysis tools.",
-           inside:["Align sequences (Clustal Omega, MUSCLE)","Search sequences (BLAST and others)","Find domains (InterPro, InterProScan)","Genomes (Ensembl) and proteins (UniProt)","Structures (PDBe, AlphaFold DB)","Free online training courses"], by:"Colleague"}
+           inside:["Align sequences (Clustal Omega, MUSCLE)","Search sequences (BLAST and others)","Find domains (InterPro, InterProScan)","Genomes (Ensembl) and proteins (UniProt)","Structures (PDBe, AlphaFold DB)","Free online training courses"]}
         ]},
       { title:"Protein feature predictions", what:"Signal peptides, membranes, modifications and more.",
         tools:[
           {name:"DTU Health Tech services", url:"https://services.healthtech.dtu.dk/", desc:"Prediction tools for protein features.",
            more:"From the Technical University of Denmark. Best known for signal peptide and membrane predictions.",
-           inside:["Signal peptides and sorting (SignalP, TargetP, DeepLoc)","Membrane regions (DeepTMHMM)","Modifications: phosphorylation and glycosylation (NetPhos, NetNGlyc, NetOGlyc)","Gene finding and splice sites (NetGene2)","Immune features (NetMHCpan)"], by:"Colleague"}
+           inside:["Signal peptides and sorting (SignalP, TargetP, DeepLoc)","Membrane regions (DeepTMHMM)","Modifications: phosphorylation and glycosylation (NetPhos, NetNGlyc, NetOGlyc)","Gene finding and splice sites (NetGene2)","Immune features (NetMHCpan)"]}
         ]},
       { title:"Image analysis toolbox", what:"One free program for almost any lab image: blots, gels, microscopy.",
         tools:[
           {name:"Fiji (ImageJ)", url:"https://imagej.net/software/fiji/", desc:"Free program for measuring and analysing images.", tag:"Free download",
            more:"ImageJ with many useful plugins already installed. Runs on your own computer, and thousands of extra plugins are available.",
-           inside:["Measure band strength on blots and gels","Count cells, nuclei or particles","Split and merge fluorescence channels","Add scale bars and make figure panels","Check if two signals overlap (colocalisation)","Work with z-stacks, 3D and time-lapse images","Repeat the same steps on many images (macros)"], by:"Nick"}
+           inside:["Measure band strength on blots and gels","Count cells, nuclei or particles","Split and merge fluorescence channels","Add scale bars and make figure panels","Check if two signals overlap (colocalisation)","Work with z-stacks, 3D and time-lapse images","Repeat the same steps on many images (macros)"]}
         ]},
       { title:"Structure prediction servers", what:"A second opinion next to AlphaFold, plus function tools.",
         tools:[
           {name:"Zhang Lab (Zhang Group)", url:"https://zhanggroup.org/", desc:"Servers for protein and RNA structure and function.",
            more:"A lab that builds well-known structure prediction tools. Useful when you want a second opinion next to AlphaFold.",
-           inside:["Protein structure prediction (I-TASSER, D-I-TASSER, QUARK)","RNA structure prediction (DeepFoldRNA)","Function prediction (COFACTOR, COACH)","Compare two structures (TM-align, US-align)","Protein–protein interactions and docking"], by:"Colleague"}
+           inside:["Protein structure prediction (I-TASSER, D-I-TASSER, QUARK)","RNA structure prediction (DeepFoldRNA)","Function prediction (COFACTOR, COACH)","Compare two structures (TM-align, US-align)","Protein–protein interactions and docking"]}
         ]}
     ]},
 
@@ -314,16 +313,16 @@ const SECTIONS = [
       { title:"Molecular biology guides", what:"Short, clear articles written for scientists.",
         tools:[
           {name:"Addgene Blog", url:"https://blog.addgene.org/", desc:"'101' guides, protocols and tips.",
-           more:"Plasmids, CRISPR, viral vectors, antibodies and imaging, explained step by step by scientists.", by:"Nick"},
+           more:"Plasmids, CRISPR, viral vectors, antibodies and imaging, explained step by step by scientists."},
           {name:"Addgene: Free online molecular biology tools", url:"https://blog.addgene.org/free-online-molecular-biology-tools", desc:"A ready-made list of free tools.",
-           more:"Addgene's own list of useful free tools for everyday molecular biology work.", by:"Colleague"},
+           more:"Addgene's own list of useful free tools for everyday molecular biology work."},
           {name:"Gibiansky: Molecular biology techniques", url:"https://www.gibiansky.com/blog/genetics/technique-primers/index.html", desc:"Plain intro to PCR, cloning, sequencing and blots.",
-           more:"Explains the basic methods in simple words, so you can follow the methods part of papers. Not a lab protocol.", by:"Colleague"}
+           more:"Explains the basic methods in simple words, so you can follow the methods part of papers. Not a lab protocol."}
         ]},
       { title:"Using databases", what:"Learn how to search the big databases well.",
         tools:[
           {name:"NCBI Entrez Help", url:"https://www.ncbi.nlm.nih.gov/books/NBK3837/", desc:"How to search NCBI databases.",
-           more:"Official guide to searching NCBI (genes, proteins, papers), saving results and linking between databases.", by:"Colleague"}
+           more:"Official guide to searching NCBI (genes, proteins, papers), saving results and linking between databases."}
         ]}
     ]},
 
@@ -333,16 +332,16 @@ const SECTIONS = [
       { title:"Icons & drawing tools", what:"Ready-made biology drawings you can use in your figures.",
         tools:[
           {name:"BioRender", url:"https://www.biorender.com/", desc:"Online tool to build science figures from icons.", tag:"Free plan / paid", paid:true,
-           more:"Drag-and-drop editor with thousands of biology icons. The free plan is fine for practice; using figures in papers usually needs a paid licence.", by:"Nick"},
+           more:"Drag-and-drop editor with thousands of biology icons. The free plan is fine for practice; using figures in papers usually needs a paid licence."},
           {name:"Bioicons", url:"https://bioicons.com/", desc:"Free, open-licence biology icons.",
-           more:"Free icons for lab equipment, cells and molecules. Check each icon's licence; some ask you to credit the author.", by:"Nick"},
+           more:"Free icons for lab equipment, cells and molecules. Check each icon's licence; some ask you to credit the author."},
           {name:"NIH BioArt Source", url:"https://bioart.niaid.nih.gov/", desc:"2,000+ free illustrations from the NIH.",
-           more:"Made by professional medical illustrators with scientists. Free to download (SVG, PNG and more). Add a short credit line when you use one.", by:"Nick"}
+           more:"Made by professional medical illustrators with scientists. Free to download (SVG, PNG and more). Add a short credit line when you use one."}
         ]},
       { title:"Inspiration & professional help", what:"See good examples, or find someone to make a figure for you.",
         tools:[
           {name:"Sigrid Knemeyer (SciStories)", url:"https://sigridknemeyer.com/", desc:"Portfolio of a scientific illustrator.", tag:"Paid service", paid:true,
-           more:"Examples of professional science figures and illustrations. Good for ideas, or if the lab wants to hire an illustrator.", by:"Colleague"}
+           more:"Examples of professional science figures and illustrations. Good for ideas, or if the lab wants to hire an illustrator."}
         ]}
     ]}
 ];
